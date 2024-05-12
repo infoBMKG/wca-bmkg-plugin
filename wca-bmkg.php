@@ -4,8 +4,6 @@
  * Plugin URI:        https://github.com/infoBMKG/wca-bmkg-plugin/
  * Description:       WordPress Custom REST API for BMKG Content
  * Version:           1.0
- * Requires at least: 5.2
- * Requires PHP:      7.2
  * Author:            Raksaka Indra
  * Author URI:        https://github.com/raksakaindra
  * License:           MIT
@@ -111,42 +109,42 @@ add_action('rest_api_init', function() {
 	register_rest_route('wca/v1', 'posts/(?P<cat>\d+)/(?P<perpage>\d+)/(?P<offset>\d+)', array(
 		'methods' => 'GET',
 		'callback' => 'wca_list_posts',
-		'args' => array(
-			'cat' => array(
-				'validate_callback' => is_numeric
-			),
-			'perpage' => array(
-				'validate_callback' => is_numeric
-			),
-			'offset' => array(
-				'validate_callback' => is_numeric
-			),
-		),
+		// 'args' => array(
+		// 	'cat' => array(
+		// 		'validate_callback' => is_numeric
+		// 	),
+		// 	'perpage' => array(
+		// 		'validate_callback' => is_numeric
+		// 	),
+		// 	'offset' => array(
+		// 		'validate_callback' => is_numeric
+		// 	),
+		// ),
 	));
 
 	register_rest_route( 'wca/v1', 'posts/(?P<slug>[a-zA-Z0-9-]+)', array(
 		'methods' => 'GET',
 		'callback' => 'wca_posts',
-// 		'args' => array(
-// 			'slug' => array(
-// 				'validate_callback' => is_string
-// 			),
-// 		),
+		// 'args' => array(
+		// 	'slug' => array(
+		// 		'validate_callback' => is_string
+		// 	),
+		// ),
 	) );
 	
 	register_rest_route( 'wca/v1', 'search/(?P<cat>\d+)/(?P<search>.+)/(?P<offset>\d+)', array(
 		'methods' => 'GET',
 		'callback' => 'wca_search_posts',
-		'args' => array(
-			'cat' => array(
-				'validate_callback' => is_numeric
-			),
-// 			'search' => array(
-// 				'validate_callback' => is_string
-// 			),
-			'offset' => array(
-				'validate_callback' => is_numeric
-			),
-		),
+		// 'args' => array(
+		// 	'cat' => array(
+		// 		'validate_callback' => is_numeric
+		// 	),
+		// 	'search' => array(
+		// 		'validate_callback' => is_string
+		// 	),
+		// 	'offset' => array(
+		// 		'validate_callback' => is_numeric
+		// 	),
+		// ),
 	) );
 });
