@@ -1,3 +1,4 @@
+<?php
 /*
  * Plugin Name:       WP-BMKG Custom API
  * Plugin URI:        https://github.com/infoBMKG/wca-bmkg-plugin/
