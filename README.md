@@ -3,11 +3,13 @@ Plugin WordPress untuk custom REST API endopoint untuk post, page, dan search. P
 1. List post
 2. Single post
 3. Search post
+4. Single page
 
 ## URL Endpoint
 1. List post: `{site}/wp-json/wca/v1/posts/{category}/{post_per_page}/{offset}`
 2. Single post: `{site}/wp-json/wca/v1/posts/{slug}`
 3. Search post: `{site}/wp-json/wca/v1/search/{category}/{search}/{offset}`
+4. Single page: `{site}/wp-json/wca/v1/pages/{slug}`
 
 Keterangan:
 - `category: int`
