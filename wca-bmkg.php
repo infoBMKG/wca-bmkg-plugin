@@ -3,7 +3,7 @@
  * Plugin Name:       WP-BMKG Custom API
  * Plugin URI:        https://github.com/infoBMKG/wca-bmkg-plugin/
  * Description:       WordPress Custom REST API for BMKG Content
- * Version:           1.3
+ * Version:           1.4
  * Requires at least: 5.6
  * Requires PHP:      7.2
  * Author:            Raksaka Indra
@@ -31,7 +31,7 @@ if( ! class_exists( 'wcaBmkgUpdate' ) ) {
 
 			$this->plugin_slug = plugin_basename( __DIR__ );
 			$this->plugin_basename_file = plugin_basename( __FILE__ );
-			$this->version = '1.3';
+			$this->version = '1.4';
 			$this->cache_key = 'wca_bmkg_upd';
 			$this->cache_allowed = false;
 
@@ -250,7 +250,7 @@ function wca_posts( $slug ) {
 	$data['title'] = apply_filters('the_title', $post[0]->post_title);
 	$data['author'] = get_the_author_meta('display_name', $post[0]->post_author);
 	$data['content'] = apply_filters('the_content', $post[0]->post_content);
-	$data[$i]['excerpt'] = apply_filters('the_excerpt', $post[0]->post_excerpt);
+	$data['excerpt'] = apply_filters('the_excerpt', $post[0]->post_excerpt);
 	$data['featured_image']['medium'] = get_the_post_thumbnail_url($post[0]->ID, 'medium');
 	$data['featured_image']['large'] = get_the_post_thumbnail_url($post[0]->ID, 'large');
 	$data['featured_image']['full'] = get_the_post_thumbnail_url($post[0]->ID, 'full');

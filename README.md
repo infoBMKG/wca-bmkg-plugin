@@ -32,3 +32,4 @@ https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-en
 - `v1.1`: 22 Mei 2024
 - `v1.2`: 19 Juni 2024
 - `v1.3`: 30 Juli 2024
+- `v1.4`: 30 Juli 2024
