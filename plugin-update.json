@@ -1,11 +1,10 @@
 {
   "name": "WP-BMKG Custom API",
-  "slug": "wca-bmkg",
+  "slug": "wca-bmkg-plugin",
   "author": "<a href='https://github.com/raksakaindra'>Raksaka Indra</a>",
-  "author_profile": "https://profiles.wordpress.org/abu-faiz",
-  "donate_link": "https://github.com/infoBMKG/wca-bmkg-plugin",
+  "author_profile": "https://github.com/raksakaindra",
   "version": "1.3",
-  "download_url": "https://github.com/infoBMKG/wca-bmkg-plugin/archive/refs/tags/v1.2.zip",
+  "download_url": "https://github.com/infoBMKG/wca-bmkg-plugin/releases/download/v1.3/wca-bmkg-plugin.zip",
   "requires": "5.6",
   "tested": "6.6.1",
   "requires_php": "7.2",
@@ -13,8 +12,8 @@
   "last_updated": "2024-07-30 10:10:10",
   "homepage": "https://github.com/infoBMKG/wca-bmkg-plugin",
   "sections": {
-    "description": "https://github.com/infoBMKG/wca-bmkg-plugin/archive/refs/tags/v1.2.zip",
-    "installation": "Click the activate button and that's it.",
+    "description": "WordPress Custom REST API for BMKG Content",
+    "installation": "Click the activate button",
     "changelog": "<h4>v1.2 released on 19 June 2024</h4><ul><li>Delete validate_callback.</li></ul><h4>v1.1 released on 22 May 2024</h4><ul><li>Add new page route and featured image size.</li></ul><h4>v1.0 released on 12 May 2024</h4><ul><li>Standalone WP plugin release.</li></ul>"
   },
   "banners": {
