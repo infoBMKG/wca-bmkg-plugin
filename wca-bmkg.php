@@ -3,7 +3,7 @@
  * Plugin Name:       WP-BMKG Custom API
  * Plugin URI:        https://github.com/infoBMKG/wca-bmkg-plugin/
  * Description:       WordPress Custom REST API for BMKG Content
- * Version:           1.4
+ * Version:           1.5
  * Requires at least: 5.6
  * Requires PHP:      7.2
  * Author:            Raksaka Indra
@@ -236,6 +236,42 @@ function wca_list_posts($param) {
 	return $data;
 }
 
+// List Posts by Tag Func
+function wca_list_posts_tag($param) {
+	$args = [
+		'post_type' => 'post',
+		'post_status' => 'publish',
+		'tag_id' => $param['tag_id'],
+		'posts_per_page' => $param['perpage'],
+		'offset' => $param['offset']
+	];
+	
+	$query = new WP_Query($args);
+	$posts = $query->get_posts();
+
+	$data = [];
+	$i = 0;
+
+	foreach($posts as $post) {
+		$data[$i]['total'] = $query->found_posts;
+		$data[$i]['date'] = $post->post_date;
+		$data[$i]['title'] = apply_filters('the_title', $post->post_title);
+		$data[$i]['slug'] = $post->post_name;
+		$data[$i]['excerpt'] = apply_filters('the_excerpt', $post->post_excerpt);
+		$data[$i]['featured_image']['thumbnail'] = get_the_post_thumbnail_url($post->ID, 'thumbnail');
+		$data[$i]['featured_image']['medium'] = get_the_post_thumbnail_url($post->ID, 'medium');
+		$data[$i]['featured_image']['large'] = get_the_post_thumbnail_url($post->ID, 'large');
+		$data[$i]['featured_image']['full'] = get_the_post_thumbnail_url($post->ID, 'full');
+		$i++;
+	}
+	
+	if ( empty( $posts ) ) {
+		return new WP_Error( 'post_not_found', 'Post not found.', array('status' => 404));
+	}
+
+	return $data;
+}
+
 // Single Post Func
 function wca_posts( $slug ) {
 	$args = [
@@ -323,6 +359,22 @@ add_action('rest_api_init', function() {
 	register_rest_route('wca/v1', 'posts/(?P<cat>\d+)/(?P<perpage>\d+)/(?P<offset>\d+)', array(
 		'methods' => 'GET',
 		'callback' => 'wca_list_posts',
+		// 'args' => array(
+		// 	'cat' => array(
+		// 		'validate_callback' => is_numeric
+		// 	),
+		// 	'perpage' => array(
+		// 		'validate_callback' => is_numeric
+		// 	),
+		// 	'offset' => array(
+		// 		'validate_callback' => is_numeric
+		// 	),
+		// ),
+	));
+
+    register_rest_route('wca/v1', 'posts-tag/(?P<tag_id>\d+)/(?P<perpage>\d+)/(?P<offset>\d+)', array(
+		'methods' => 'GET',
+		'callback' => 'wca_list_posts_tag',
 		// 'args' => array(
 		// 	'cat' => array(
 		// 		'validate_callback' => is_numeric
