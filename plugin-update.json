@@ -14,7 +14,7 @@
   "sections": {
     "description": "WordPress Custom REST API for BMKG Content",
     "installation": "Click the activate button",
-    "changelog": "<h4>v1.6 released on 11 April 2025</h4><ul><li>Add post list by tag.</li></ul><h4>v1.5 released on 16 December 2024</h4><ul><li>Add post list by tag.</li></ul><h4>v1.4 released on 30 July 2024</h4><ul><li>Fix excerpt.</li></ul><h4>v1.3 released on 30 July 2024</h4><ul><li>Add excerpt in single post.</li></ul><h4>v1.2 released on 19 June 2024</h4><ul><li>Delete validate_callback.</li></ul><h4>v1.1 released on 22 May 2024</h4><ul><li>Add new page route and featured image size.</li></ul><h4>v1.0 released on 12 May 2024</h4><ul><li>Standalone WP plugin release.</li></ul>"
+    "changelog": "<h4>v1.6 released on 11 April 2025</h4><ul><li>Refactor code.</li></ul><h4>v1.5 released on 16 December 2024</h4><ul><li>Add post list by tag.</li></ul><h4>v1.4 released on 30 July 2024</h4><ul><li>Fix excerpt.</li></ul><h4>v1.3 released on 30 July 2024</h4><ul><li>Add excerpt in single post.</li></ul><h4>v1.2 released on 19 June 2024</h4><ul><li>Delete validate_callback.</li></ul><h4>v1.1 released on 22 May 2024</h4><ul><li>Add new page route and featured image size.</li></ul><h4>v1.0 released on 12 May 2024</h4><ul><li>Standalone WP plugin release.</li></ul>"
   },
   "banners": {
     "low": "https://www.bmkg.go.id/images/splash.png",
