@@ -37,3 +37,4 @@ https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-en
 - `v1.3`: 30 Juli 2024
 - `v1.4`: 30 Juli 2024
 - `v1.5`: 16 Desember 2024
+- `v1.6`: 11 April 2025
