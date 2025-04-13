@@ -813,4 +813,7 @@ add_action("rest_api_init", function () {
 //    load_plugin_textdomain('wp-bmkg-custom-api', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 // });
 
+// Add PDF iframe button in editor
+require_once plugin_dir_path(__FILE__) . "includes/iframe-pdf-button.php";
+
 ?>
