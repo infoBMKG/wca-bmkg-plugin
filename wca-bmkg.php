@@ -616,7 +616,7 @@ function wca_pages($slug)
     }
 
     $args = [
-        "pagename" => $the_slug, // Gunakan pagename untuk page
+        "name" => $the_slug, // Gunakan page slug
         "post_type" => "page",
         "post_status" => "publish",
         "posts_per_page" => 1,
