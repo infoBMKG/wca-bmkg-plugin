@@ -3,7 +3,7 @@
  * Plugin Name:       WP-BMKG Custom API
  * Plugin URI:        https://github.com/infoBMKG/wca-bmkg-plugin/
  * Description:       WordPress Custom REST API for BMKG Content
- * Version:           1.6
+ * Version:           1.7
  * Requires at least: 5.6
  * Requires PHP:      7.2
  * Author:            Raksaka Indra

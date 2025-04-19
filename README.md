@@ -29,6 +29,12 @@ Keterangan:
 
 https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/
 
+## Shortcode
+
+Plugin ini juga menambahkan shortcode di editor classic TinyMCE:
+
+1. PDF HTML iframe
+
 ## Changelog
 
 - `v1.0`: 12 Mei 2024
@@ -38,3 +44,4 @@ https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-en
 - `v1.4`: 30 Juli 2024
 - `v1.5`: 16 Desember 2024
 - `v1.6`: 11 April 2025
+- `v1.7`: 19 April 2025
