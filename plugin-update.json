@@ -9,7 +9,7 @@
   "tested": "6.8",
   "requires_php": "7.2",
   "added": "2024-05-12 10:10:10",
-  "last_updated": "2025-04-19 20:20:20",
+  "last_updated": "2025-04-26 20:20:20",
   "homepage": "https://github.com/infoBMKG/wca-bmkg-plugin",
   "sections": {
     "description": "WordPress Custom REST API for BMKG Content",
