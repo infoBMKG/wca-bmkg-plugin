@@ -43,7 +43,7 @@ Plugin ini juga menambahkan shortcode di editor classic TinyMCE:
 
 ```html
 <!-- Shortcode lengkap -->
-[bmkg_grid_item image_src="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg" title="Grid Item" link_url="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg" link_text="Selengkapnya"]Ini adalah paragraf yang panjang.[/bmkg_grid_item]
+[bmkg_grid_item image_src="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg" title="Grid Item" image_alt="Grid Item" link_url="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg" link_text="Selengkapnya"]Ini adalah paragraf yang panjang.[/bmkg_grid_item]
 ```
 
 ```html
