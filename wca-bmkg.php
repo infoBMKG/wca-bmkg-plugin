@@ -717,4 +717,9 @@ if (
     require_once plugin_dir_path(__FILE__) . "includes/shortcode-grid-item.php";
 }
 
+// Add grid item button (assuming file exists)
+if (file_exists(plugin_dir_path(__FILE__) . "includes/grid-item-button.php")) {
+    require_once plugin_dir_path(__FILE__) . "includes/grid-item-button.php";
+}
+
 ?>
