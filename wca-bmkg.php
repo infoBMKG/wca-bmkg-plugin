@@ -816,4 +816,7 @@ add_action("rest_api_init", function () {
 // Add PDF iframe button in editor
 require_once plugin_dir_path(__FILE__) . "includes/iframe-pdf-button.php";
 
+// Add shortcode grid item
+require_once plugin_dir_path(__FILE__) . "includes/shortcode-grid-item.php";
+
 ?>
