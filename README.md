@@ -35,6 +35,22 @@ Plugin ini juga menambahkan shortcode di editor classic TinyMCE:
 
 1. PDF HTML iframe
 
+```html
+<iframe class="pdf" src="https://docs.google.com/viewer?url=https://content.bmkg.go.id/wp-content/uploads/prakiraan_cuaca_mingguan-8.pdf&amp;embedded=true"></iframe><br class="hidden" />- <em>Klik <a href="https://content.bmkg.go.id/wp-content/uploads/prakiraan_cuaca_mingguan-8.pdf" target="_blank" rel="noopener noreferrer">tautan ini</a> jika PDF di atas tidak muncul</em>.
+```
+
+2. HTML grid item
+
+```html
+<!-- Shortcode lengkap -->
+[bmkg_grid_item image_src="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg" title="Grid Item" link_url="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg" link_text="Selengkapnya"]Ini adalah paragraf yang panjang.[/bmkg_grid_item]
+```
+
+```html
+<!-- Shortcode tanpa link -->
+[bmkg_grid_item image_src="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg" title="Grid Item"]Ini adalah paragraf yang panjang.[/bmkg_grid_item]
+```
+
 ## Changelog
 
 - `v1.0`: 12 Mei 2024
@@ -45,3 +61,4 @@ Plugin ini juga menambahkan shortcode di editor classic TinyMCE:
 - `v1.5`: 16 Desember 2024
 - `v1.6`: 11 April 2025
 - `v1.7`: 19 April 2025
+- `v1.8`: 26 April 2025
