@@ -3,7 +3,7 @@
  * Plugin Name:       WP-BMKG Custom API
  * Plugin URI:        https://github.com/infoBMKG/wca-bmkg-plugin/
  * Description:       WordPress Custom REST API for BMKG Content
- * Version:           1.8
+ * Version:           1.9
  * Requires at least: 5.6
  * Requires PHP:      7.2
  * Author:            Raksaka Indra
@@ -720,6 +720,16 @@ if (
 // Add grid item button (assuming file exists)
 if (file_exists(plugin_dir_path(__FILE__) . "includes/grid-item-button.php")) {
     require_once plugin_dir_path(__FILE__) . "includes/grid-item-button.php";
+}
+
+// Add abbr shortcode
+if (file_exists(plugin_dir_path(__FILE__) . "includes/shortcode-abbr.php")) {
+    require_once plugin_dir_path(__FILE__) . "includes/shortcode-abbr.php";
+}
+
+// Add abbr button (assuming file exists)
+if (file_exists(plugin_dir_path(__FILE__) . "includes/abbr-button.php")) {
+    require_once plugin_dir_path(__FILE__) . "includes/abbr-button.php";
 }
 
 ?>
