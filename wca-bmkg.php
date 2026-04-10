@@ -545,6 +545,65 @@ function wca_search_posts($param)
     return new WP_REST_Response($data, 200);
 }
 
+// Search Posts by Tag Func
+function wca_search_posts_tag($param)
+{
+    $tag_id = isset($param["tag_id"]) ? $param["tag_id"] : 0;
+    $search_term = isset($param["search"]) ? $param["search"] : "";
+    $offset = isset($param["offset"]) ? $param["offset"] : 0;
+    $posts_per_page = 12;
+    $args = [
+        "posts_per_page" => $posts_per_page,
+        "post_type" => "post",
+        "post_status" => "publish",
+        "tag_id" => $tag_id,
+        "s" => $search_term,
+        "offset" => $offset,
+        "no_found_rows" => false,
+    ];
+    $query = new WP_Query($args);
+    $posts = $query->get_posts();
+    if (empty($posts)) {
+        return [];
+    }
+    $data = [];
+    $i = 0;
+    $total_posts = (int) $query->found_posts;
+    foreach ($posts as $post) {
+        $post_id = $post->ID;
+        $data[$i]["total"] = $total_posts;
+        $data[$i]["date"] = $post->post_date;
+        $data[$i]["title"] = html_entity_decode(
+            apply_filters("the_title", $post->post_title)
+        );
+        $data[$i]["slug"] = $post->post_name;
+        $raw_excerpt = has_excerpt($post_id)
+            ? $post->post_excerpt
+            : get_the_excerpt($post_id);
+        $filtered_excerpt = apply_filters("the_excerpt", $raw_excerpt);
+        $decoded_excerpt = html_entity_decode($filtered_excerpt);
+        $plain_excerpt = wp_strip_all_tags($decoded_excerpt);
+        $data[$i]["excerpt"] = $plain_excerpt;
+        $thumbnail_id = get_post_thumbnail_id($post_id);
+        if ($thumbnail_id) {
+            $data[$i]["featured_image"] = [
+                "thumbnail" => wp_get_attachment_image_url(
+                    $thumbnail_id,
+                    "thumbnail"
+                ),
+                "medium" => wp_get_attachment_image_url(
+                    $thumbnail_id,
+                    "medium"
+                ),
+            ];
+        } else {
+            $data[$i]["featured_image"] = null;
+        }
+        $i++;
+    }
+    return new WP_REST_Response($data, 200);
+}
+
 // Single Page Func
 function wca_pages($slug)
 {
@@ -667,6 +726,38 @@ add_action("rest_api_init", function () {
                     "type" => "integer",
                     "required" => true,
                     "validate_callback" => "wca_validate_category_exists",
+                    "sanitize_callback" => "absint",
+                ],
+                "search" => [
+                    "type" => "string",
+                    "required" => true,
+                    "validate_callback" => "wca_validate_non_empty_string",
+                    "sanitize_callback" => function ($param) {
+                        return sanitize_text_field(urldecode($param));
+                    },
+                ],
+                "offset" => [
+                    "type" => "integer",
+                    "required" => true,
+                    "validate_callback" => "wca_validate_numeric_ge_zero",
+                    "sanitize_callback" => "absint",
+                ],
+            ],
+        ]
+    );
+
+    register_rest_route(
+        $namespace,
+        "/search-tag/(?P<tag_id>\d+)/(?P<search>.+)/(?P<offset>\d+)",
+        [
+            "methods" => WP_REST_Server::READABLE,
+            "callback" => "wca_search_posts_tag",
+            "permission_callback" => "__return_true",
+            "args" => [
+                "tag_id" => [
+                    "type" => "integer",
+                    "required" => true,
+                    "validate_callback" => "wca_validate_tag_exists",
                     "sanitize_callback" => "absint",
                 ],
                 "search" => [
