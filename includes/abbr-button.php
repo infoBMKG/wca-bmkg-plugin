@@ -11,7 +11,7 @@ function wca_bmkg_add_abbr_editor_button()
     add_filter("mce_external_plugins", "wca_bmkg_register_abbr_tinymce_plugin");
     add_filter("mce_buttons", "wca_bmkg_add_abbr_tinymce_button");
 }
-add_action("admin_head", "wca_bmkg_add_abbr_editor_button");
+add_action("admin_init", "wca_bmkg_add_abbr_editor_button");
 
 function wca_bmkg_register_abbr_tinymce_plugin($plugin_array)
 {

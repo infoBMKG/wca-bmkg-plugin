@@ -27,7 +27,7 @@ function wca_bmkg_add_raw_pdf_button_from_theme()
     add_filter("mce_buttons", "wca_bmkg_add_raw_pdf_tinymce_button");
 }
 // Jalankan fungsi di admin head (atau admin_init)
-add_action("admin_head", "wca_bmkg_add_raw_pdf_button_from_theme");
+add_action("admin_init", "wca_bmkg_add_raw_pdf_button_from_theme");
 
 /**
  * Mendaftarkan file JavaScript plugin TinyMCE eksternal.

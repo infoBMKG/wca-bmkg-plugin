@@ -33,7 +33,7 @@ if (!class_exists("wcaBmkgUpdate")) {
             $this->remote_url =
                 "https://raw.githubusercontent.com/infoBMKG/wca-bmkg-plugin/main/plugin-update.json";
             $this->cache_key = "wca_bmkg_upd_" . md5($this->remote_url);
-            $this->cache_allowed = false;
+            $this->cache_allowed = true;
 
             add_filter("plugins_api", [$this, "info"], 20, 3);
             add_filter("pre_set_site_transient_update_plugins", [
@@ -78,15 +78,18 @@ if (!class_exists("wcaBmkgUpdate")) {
                 $remote_body = wp_remote_retrieve_body($remote_get);
                 set_transient($this->cache_key, $remote_body, DAY_IN_SECONDS);
             } else {
-                $remote_body = $remote;
-                $maybe_error = json_decode($remote_body, true);
                 if (
-                    is_array($maybe_error) &&
-                    isset($maybe_error["error"]) &&
-                    $maybe_error["error"] === true
+                    is_array($remote) &&
+                    isset($remote["error"]) &&
+                    $remote["error"] === true
                 ) {
                     return false;
                 }
+                if (!is_string($remote)) {
+                    delete_transient($this->cache_key);
+                    return false;
+                }
+                $remote_body = $remote;
             }
             $remote_data = json_decode($remote_body);
             if (json_last_error() !== JSON_ERROR_NONE) {
@@ -206,7 +209,7 @@ if (!class_exists("wcaBmkgUpdate")) {
                 version_compare(
                     isset($remote->requires_php) ? $remote->requires_php : "0",
                     PHP_VERSION,
-                    "<"
+                    "<="
                 )
             ) {
                 $res = new stdClass();

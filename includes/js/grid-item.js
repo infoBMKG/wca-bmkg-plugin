@@ -1,4 +1,8 @@
 (function () {
+  function escapeShortcodeAttr(value) {
+    return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+  }
+
   // Daftarkan plugin TinyMCE: 'bmkgGridItemPlugin'
   tinymce.PluginManager.add("bmkgGridItemPlugin", function (editor, url) {
     // Tambahkan tombol: 'bmkg_grid_item_button'
@@ -52,13 +56,20 @@
 
         // Rakit string atribut
         var attsString =
-          ' image_src="' + imageUrl.trim() + '" title="' + title.trim() + '"';
+          ' image_src="' +
+          escapeShortcodeAttr(imageUrl.trim()) +
+          '" title="' +
+          escapeShortcodeAttr(title.trim()) +
+          '"';
         if (altText && altText.trim() !== "") {
-          attsString += ' image_alt="' + altText.trim() + '"';
+          attsString +=
+            ' image_alt="' + escapeShortcodeAttr(altText.trim()) + '"';
         }
         if (linkUrl) {
-          attsString += ' link_url="' + linkUrl.trim() + '"';
-          attsString += ' link_text="' + linkText + '"';
+          attsString +=
+            ' link_url="' + escapeShortcodeAttr(linkUrl.trim()) + '"';
+          attsString +=
+            ' link_text="' + escapeShortcodeAttr(linkText) + '"';
         }
 
         // Buat shortcode lengkap

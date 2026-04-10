@@ -22,7 +22,7 @@ function wca_bmkg_add_grid_item_editor_button()
     );
     add_filter("mce_buttons", "wca_bmkg_add_grid_item_tinymce_button");
 }
-add_action("admin_head", "wca_bmkg_add_grid_item_editor_button");
+add_action("admin_init", "wca_bmkg_add_grid_item_editor_button");
 
 /**
  * Mendaftarkan file JS untuk plugin TinyMCE Grid Item.
