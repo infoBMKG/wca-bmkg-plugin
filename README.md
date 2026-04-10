@@ -6,7 +6,8 @@ Plugin WordPress untuk custom REST API endopoint untuk post, page, dan search. P
 2. List post tag
 3. Single post
 4. Search post
-5. Single page
+5. Search post tag
+6. Single page
 
 ## URL Endpoint
 
@@ -14,7 +15,8 @@ Plugin WordPress untuk custom REST API endopoint untuk post, page, dan search. P
 2. List post tag: `{site}/wp-json/wca/v1/posts-tag/{tag_id}/{post_per_page}/{offset}`
 3. Single post: `{site}/wp-json/wca/v1/posts/{slug}`
 4. Search post: `{site}/wp-json/wca/v1/search/{category}/{search}/{offset}`
-5. Single page: `{site}/wp-json/wca/v1/pages/{slug}`
+5. Search post tag: `{site}/wp-json/wca/v1/search-tag/{tag_id}/{search}/{offset}`
+6. Single page: `{site}/wp-json/wca/v1/pages/{slug}`
 
 Keterangan:
 
@@ -36,19 +38,39 @@ Plugin ini juga menambahkan shortcode di editor classic TinyMCE:
 1. PDF HTML iframe
 
 ```html
-<iframe class="pdf" src="https://docs.google.com/viewer?url=https://content.bmkg.go.id/wp-content/uploads/prakiraan_cuaca_mingguan-8.pdf&amp;embedded=true"></iframe><br class="hidden" />- <em>Klik <a href="https://content.bmkg.go.id/wp-content/uploads/prakiraan_cuaca_mingguan-8.pdf" target="_blank" rel="noopener noreferrer">tautan ini</a> jika PDF di atas tidak muncul</em>.
+<iframe
+  class="pdf"
+  src="https://docs.google.com/viewer?url=https://content.bmkg.go.id/wp-content/uploads/prakiraan_cuaca_mingguan-8.pdf&amp;embedded=true"
+></iframe
+><br class="hidden" />-
+<em
+  >Klik
+  <a
+    href="https://content.bmkg.go.id/wp-content/uploads/prakiraan_cuaca_mingguan-8.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    >tautan ini</a
+  >
+  jika PDF di atas tidak muncul</em
+>.
 ```
 
 2. HTML grid item
 
 ```html
 <!-- Shortcode lengkap -->
-[bmkg_grid_item image_src="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg" title="Grid Item" image_alt="Grid Item" link_url="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg" link_text="Selengkapnya"]Ini adalah paragraf yang panjang.[/bmkg_grid_item]
+[bmkg_grid_item
+image_src="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg"
+title="Grid Item" image_alt="Grid Item"
+link_url="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg"
+link_text="Selengkapnya"]Ini adalah paragraf yang panjang.[/bmkg_grid_item]
 ```
 
 ```html
 <!-- Shortcode tanpa link -->
-[bmkg_grid_item image_src="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg" title="Grid Item"]Ini adalah paragraf yang panjang.[/bmkg_grid_item]
+[bmkg_grid_item
+image_src="https://content.bmkg.go.id/wp-content/uploads/Prospek-cuaca-mingguan-A.jpg"
+title="Grid Item"]Ini adalah paragraf yang panjang.[/bmkg_grid_item]
 ```
 
 ## Changelog
@@ -62,3 +84,5 @@ Plugin ini juga menambahkan shortcode di editor classic TinyMCE:
 - `v1.6`: 11 April 2025
 - `v1.7`: 19 April 2025
 - `v1.8`: 26 April 2025
+- `v1.9`: 10 Agustus 2025
+- `v1.10`: 10 April 2026
