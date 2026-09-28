@@ -86,3 +86,4 @@ title="Grid Item"]Ini adalah paragraf yang panjang.[/bmkg_grid_item]
 - `v1.8`: 26 April 2025
 - `v1.9`: 10 Agustus 2025
 - `v1.10`: 10 April 2026
+- `v1.11`: 28 September 2026
