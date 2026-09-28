@@ -539,6 +539,8 @@ function wca_search_posts($param)
                     $thumbnail_id,
                     "medium"
                 ),
+                "large" => wp_get_attachment_image_url($thumbnail_id, "large"),
+                "full" => wp_get_attachment_image_url($thumbnail_id, "full"),
             ];
         } else {
             $data[$i]["featured_image"] = null;
@@ -598,6 +600,8 @@ function wca_search_posts_tag($param)
                     $thumbnail_id,
                     "medium"
                 ),
+                "large" => wp_get_attachment_image_url($thumbnail_id, "large"),
+                "full" => wp_get_attachment_image_url($thumbnail_id, "full"),
             ];
         } else {
             $data[$i]["featured_image"] = null;
