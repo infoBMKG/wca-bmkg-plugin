@@ -3,7 +3,7 @@
  * Plugin Name:       WP-BMKG Custom API
  * Plugin URI:        https://github.com/infoBMKG/wca-bmkg-plugin/
  * Description:       WordPress Custom REST API for BMKG Content
- * Version:           1.10
+ * Version:           1.11
  * Requires at least: 5.6
  * Requires PHP:      7.2
  * Author:            Raksaka Indra
@@ -344,7 +344,7 @@ function wca_list_posts($param)
         $data[$i]["total"] = $total_posts;
         $data[$i]["date"] = $post->post_date;
         $data[$i]["title"] = html_entity_decode(
-            apply_filters("the_title", $post->post_title)
+            apply_filters("the_title", $post->post_title, $post_id)
         );
         $data[$i]["slug"] = $post->post_name;
         $raw_excerpt = has_excerpt($post_id)
@@ -403,7 +403,7 @@ function wca_list_posts_tag($param)
         $data[$i]["total"] = $total_posts;
         $data[$i]["date"] = $post->post_date;
         $data[$i]["title"] = html_entity_decode(
-            apply_filters("the_title", $post->post_title)
+            apply_filters("the_title", $post->post_title, $post_id)
         );
         $data[$i]["slug"] = $post->post_name;
         $raw_excerpt = has_excerpt($post_id)
@@ -462,7 +462,7 @@ function wca_posts($slug)
     $data = [];
     $data["date"] = $post->post_date;
     $data["title"] = html_entity_decode(
-        apply_filters("the_title", $post->post_title)
+        apply_filters("the_title", $post->post_title, $post_id)
     );
     $data["author"] = get_the_author_meta("display_name", $post->post_author);
     $data["content"] = apply_filters("the_content", $post->post_content);
@@ -518,7 +518,7 @@ function wca_search_posts($param)
         $data[$i]["total"] = $total_posts;
         $data[$i]["date"] = $post->post_date;
         $data[$i]["title"] = html_entity_decode(
-            apply_filters("the_title", $post->post_title)
+            apply_filters("the_title", $post->post_title, $post_id)
         );
         $data[$i]["slug"] = $post->post_name;
         $raw_excerpt = has_excerpt($post_id)
@@ -577,7 +577,7 @@ function wca_search_posts_tag($param)
         $data[$i]["total"] = $total_posts;
         $data[$i]["date"] = $post->post_date;
         $data[$i]["title"] = html_entity_decode(
-            apply_filters("the_title", $post->post_title)
+            apply_filters("the_title", $post->post_title, $post_id)
         );
         $data[$i]["slug"] = $post->post_name;
         $raw_excerpt = has_excerpt($post_id)
@@ -630,10 +630,11 @@ function wca_pages($slug)
         ]);
     }
     $post = $query->posts[0];
+    $post_id = $post->ID;
     $data = [];
     $data["date"] = $post->post_date;
     $data["title"] = html_entity_decode(
-        apply_filters("the_title", $post->post_title)
+        apply_filters("the_title", $post->post_title, $post_id)
     );
     $data["content"] = apply_filters("the_content", $post->post_content);
     return new WP_REST_Response($data, 200);
