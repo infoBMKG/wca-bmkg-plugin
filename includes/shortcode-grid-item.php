@@ -45,11 +45,21 @@ function bmkg_grid_item_shortcode_handler($atts, $content = null)
     // Proses konten deskripsi (trim, shortcode, paragraf otomatis)
     $processed_content = wpautop(do_shortcode(trim($content)));
 
-    // Siapkan HTML untuk link (jika ada)
+    // Siapkan HTML gambar dan link (jika ada)
+    $image_html = sprintf(
+        '<img class="h-auto max-w-full rounded-lg object-cover" src="%s" alt="%s" />',
+        $image_src,
+        $image_alt
+    );
     $link_html = "";
     if (!empty($attributes["link_url"]) && $attributes["link_url"] !== "#") {
         $link_url = esc_url($attributes["link_url"]);
         $link_text = esc_html($attributes["link_text"]);
+        $image_html = sprintf(
+            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+            $link_url,
+            $image_html
+        );
         // Rakit HTML link
         $link_html = sprintf(
             '<a href="%s" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex justify-start items-center text-blue-primary text-base font-medium hover:underline">
@@ -65,7 +75,7 @@ function bmkg_grid_item_shortcode_handler($atts, $content = null)
     $output = <<<HTML
 <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-0 md:gap-8 mb-6 md:mb-8">
     <div class="md:col-span-1 flex justify-center md:justify-start items-start">
-        <img class="h-auto max-w-full rounded-lg object-cover" src="{$image_src}" alt="{$image_alt}" />
+        {$image_html}
     </div>
     <div class="md:col-span-2">
       <h3 class="text-lg xl:text-2xl font-bold mb-4">{$title}</h3>
