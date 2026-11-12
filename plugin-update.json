@@ -3,18 +3,18 @@
   "slug": "wca-bmkg-plugin",
   "author": "<a href='https://github.com/raksakaindra'>Raksaka Indra</a>",
   "author_profile": "https://github.com/raksakaindra",
-  "version": "1.11",
-  "download_url": "https://github.com/infoBMKG/wca-bmkg-plugin/releases/download/v1.11/wca-bmkg-plugin.zip",
+  "version": "1.12",
+  "download_url": "https://github.com/infoBMKG/wca-bmkg-plugin/releases/download/v1.12/wca-bmkg-plugin.zip",
   "requires": "5.6",
-  "tested": "7.1.2",
+  "tested": "7.1.4",
   "requires_php": "7.2",
   "added": "2026-04-10 00:00:00",
-  "last_updated": "2026-09-28 00:00:00",
+  "last_updated": "2026-11-12 00:00:00",
   "homepage": "https://github.com/infoBMKG/wca-bmkg-plugin",
   "sections": {
     "description": "WordPress Custom REST API for BMKG Content",
     "installation": "Click the activate button",
-    "changelog": "<h4>v1.11 released on 28 September 2026</h4><ul><li>Fix REST API title filtering compatibility with plugins that require the post ID argument.</li><li>Add large and full featured image sizes to search API responses.</li></ul><h4>v1.10 released on 10 April 2026</h4><ul><li>Add search post by tag endpoint.</li><li>Improve updater cache and validation logic.</li><li>Harden TinyMCE shortcode handling.</li></ul><h4>v1.9 released on 10 August 2025</h4><ul><li>Add HTML abbr shortcode for glossary/istilah</li></ul><h4>v1.8 released on 26 April 2025</h4><ul><li>Add HTML grid item shortcode</li></ul><h4>v1.7 released on 19 April 2025</h4><ul><li>Fix bug: error 404 in page slug</li><li>Add PDF HTML iframe</li></ul><h4>v1.6 released on 11 April 2025</h4><ul><li>Refactor code.</li></ul><h4>v1.5 released on 16 December 2024</h4><ul><li>Add post list by tag.</li></ul><h4>v1.4 released on 30 July 2024</h4><ul><li>Fix excerpt.</li></ul><h4>v1.3 released on 30 July 2024</h4><ul><li>Add excerpt in single post.</li></ul><h4>v1.2 released on 19 June 2024</h4><ul><li>Delete validate_callback.</li></ul><h4>v1.1 released on 22 May 2024</h4><ul><li>Add new page route and featured image size.</li></ul><h4>v1.0 released on 12 May 2024</h4><ul><li>Standalone WP plugin release.</li></ul>"
+    "changelog": "<h4>v1.12 released on 12 November 2026</h4><ul><li>Make grid item images link to their configured URL.</li></ul><h4>v1.11 released on 28 September 2026</h4><ul><li>Fix REST API title filtering compatibility with plugins that require the post ID argument.</li><li>Add large and full featured image sizes to search API responses.</li></ul><h4>v1.10 released on 10 April 2026</h4><ul><li>Add search post by tag endpoint.</li><li>Improve updater cache and validation logic.</li><li>Harden TinyMCE shortcode handling.</li></ul><h4>v1.9 released on 10 August 2025</h4><ul><li>Add HTML abbr shortcode for glossary/istilah</li></ul><h4>v1.8 released on 26 April 2025</h4><ul><li>Add HTML grid item shortcode</li></ul><h4>v1.7 released on 19 April 2025</h4><ul><li>Fix bug: error 404 in page slug</li><li>Add PDF HTML iframe</li></ul><h4>v1.6 released on 11 April 2025</h4><ul><li>Refactor code.</li></ul><h4>v1.5 released on 16 December 2024</h4><ul><li>Add post list by tag.</li></ul><h4>v1.4 released on 30 July 2024</h4><ul><li>Fix excerpt.</li></ul><h4>v1.3 released on 30 July 2024</h4><ul><li>Add excerpt in single post.</li></ul><h4>v1.2 released on 19 June 2024</h4><ul><li>Delete validate_callback.</li></ul><h4>v1.1 released on 22 May 2024</h4><ul><li>Add new page route and featured image size.</li></ul><h4>v1.0 released on 12 May 2024</h4><ul><li>Standalone WP plugin release.</li></ul>"
   },
   "banners": {
     "low": "https://www.bmkg.go.id/images/splash.png",
